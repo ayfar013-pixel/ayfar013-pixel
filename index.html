@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Ahmed Security Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Ahmed Security Academy</h1>
+        <p>منصة تعليمية لدروس الأمن السيبراني بشكل آمن وقانوني</p>
+    </header>
+
+    <section class="courses">
+        <h2>الكورسات المتاحة</h2>
+
+        <div class="card">
+            <h3>أساسيات الأمن السيبراني</h3>
+            <p>تعرف على مفاهيم الأمن وحماية الأنظمة بطريقة آمنة.</p>
+            <button onclick="joinCourse('أساسيات الأمن السيبراني')">الانضمام</button>
+        </div>
+
+        <div class="card">
+            <h3>مقدمة في الشبكات</h3>
+            <p>شرح IP – Ports – Protocols</p>
+            <button onclick="joinCourse('مقدمة في الشبكات')">الانضمام</button>
+        </div>
+
+        <div class="card">
+            <h3>أمن المعلومات للمبتدئين</h3>
+            <p>كيف تحمي جهازك وحساباتك بشكل صحيح.</p>
+            <button onclick="joinCourse('أمن المعلومات للمبتدئين')">الانضمام</button>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Ahmed Security Academy</p>
+    </footer>
+
+<script src="app.js"></script>
+</body>
+</html>body {
+    font-family: "Cairo", sans-serif;
+    background: #f3f3f3;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #222;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+}
+
+.courses {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.card button {
+    background: #0077ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #005bcc;
+}
+function joinCourse(courseName) {
+    alert("تم تسجيلك في كورس: " + courseName + " ✓");
+}
