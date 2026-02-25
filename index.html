@@ -5,18 +5,19 @@
     <title>Ahmed Security Academy</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <!-- صفحة تسجيل الدخول -->
-    <div class="login-container" id="loginPage">
+    <div id="loginPage" class="login-container">
         <h2>تسجيل الدخول</h2>
-        <input type="text" id="user" placeholder="اسم المستخدم">
-        <input type="password" id="pass" placeholder="كلمة المرور">
+
+        <input id="user" type="text" placeholder="اسم المستخدم">
+        <input id="pass" type="password" placeholder="كلمة المرور">
+
         <button onclick="login()">دخول</button>
     </div>
 
-    <!-- صفحة الكورسات -->
+    <!-- محتوى الموقع -->
     <div id="mainPage" class="hidden">
 
         <header>
@@ -40,131 +41,110 @@
             </div>
 
             <div class="card">
-                <h3>أمن المعلومات للمبتدئين</h3>
-                <p>كيف تحمي جهازك وحساباتك.</p>
-                <button onclick="joinCourse('أمن المعلومات للمبتدئين')">الانضمام</button>
-            </div>
-
-            <div class="card">
                 <h3>تحليل الهجمات السيبرانية</h3>
                 <p>محتوى تعليمي لفهم طرق الهجوم والدفاع.</p>
                 <button onclick="joinCourse('تحليل الهجمات السيبرانية')">الانضمام</button>
             </div>
-
         </section>
 
         <footer>
             <p>© 2026 Ahmed Security Academy</p>
         </footer>
-    
-
     </div>
 
-<script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
-/* خلفية جميلة */
+<!-- صفحة تسجيل الدخول -->
+<div class="login-box">
+    <h2>تسجيل الدخول</h2>
+    <form>
+        <div class="input-box">
+            <input type="text" required>
+            <label>اسم المستخدم</label>
+        </div>
+
+        <div class="input-box">
+            <input type="password" required>
+            <label>كلمة المرور</label>
+        </div>
+
+        <button class="login-btn">دخول</button>
+    </form>
+</div>
+
+/* خلفية للموقع */
 body {
     font-family: "Cairo", sans-serif;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(135deg, #0a0f24, #1c2a4a);
     margin: 0;
-}
-
-/* صفحة تسجيل الدخول */
-.login-container {
-    width: 350px;
-    margin: 120px auto;
-    background: rgba(255,255,255,0.15);
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    backdrop-filter: blur(10px);
+    padding: 0;
     color: #fff;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-.login-container input {
-    width: 90%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: none;
+/* صندوق تسجيل الدخول */
+.login-box {
+    width: 350px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    padding: 25px;
+    margin: 40px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #000;
+    text-align: center;
 }
 
-.login-container button {
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.input-box {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-box input {
     width: 100%;
     padding: 12px;
-    background: #00c3ff;
     border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 18px;
-}
-
-.hidden {
-    display: none;
-}
-
-/* الهيدر */
-header {
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 25px;
-    text-align: center;
-    backdrop-filter: blur(4px);
-}
-
-/* بطاقات الكورسات */
-.courses {
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
-}
-
-.card {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    color: #fff;
-    box-shadow: 0 0 12px rgba(0,0,0,0.4);
-}
-
-.card button {
-    background: #0dbfff;
-    padding: 10px 25px;
-    border: none;
+    outline: none;
     border-radius: 8px;
-    color: white;
-    cursor: pointer;
-}
-
-.card button:hover {
-    background: #0098cc;
-}
-
-/* الفوتر */
-footer {
-    text-align: center;
-    padding: 15px;
+    background: #ffffff20;
     color: #fff;
-    opacity: 0.7;
-}
-function login() {
-    let user = document.getElementById("user").value;
-    let pass = document.getElementById("pass").value;
-
-    if (user === "" || pass === "") {
-        alert("يرجى إدخال جميع البيانات!");
-        return;
-    }
-
-    document.getElementById("loginPage").classList.add("hidden");
-    document.getElementById("mainPage").classList.remove("hidden");
+    font-size: 16px;
 }
 
-function joinCourse(courseName) {
-    alert("تم تسجيلك في كورس: " + courseName + " ✓");
+.input-box label {
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    color: #ccc;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* حركة الليبل عند الكتابة */
+.input-box input:focus + label,
+.input-box input:valid + label {
+    top: -10px;
+    font-size: 13px;
+    color: #00aaff;
+}
+
+/* زر الدخول */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #00aaff;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #0088cc;
 }
